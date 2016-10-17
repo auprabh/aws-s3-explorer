@@ -1,0 +1,8 @@
+<form class="col-md-12 pull right">
+  <div class="form-group">
+    <input type="text" class="form-control" placeholder="Search files ..." ng-model="search.key">
+  </div>
+</form>
+<div class="col-md-12" ng-repeat="file in fileList | filter:search">
+  <div class="well">{{file.key}}<div class="pull-right"><a href="{{file.url}}"><span class="glyphicon glyphicon-download-alt"></span> Download</a></div></div>
+</div>

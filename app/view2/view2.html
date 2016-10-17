@@ -1,0 +1,30 @@
+<div class="col-md-12">
+<form novalidate>
+                <div>
+                    <p>
+                        <button type="file" ngf-select="uploadFiles($files)" ngf-multiple="true">
+                            Select File
+                        </button>
+                    </p>
+                </div>
+                <div ng-show="Files.length > 0">
+                    <div ng-repeat="file in Files">
+                        File:
+                        <div>
+                            {{file.name}} {{file.$error}} {{file.$errorParam}}
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: {{file.Progress}}%;">
+                                {{file.Progress | number:0}}%
+                            </div>
+                        </div>
+                        <div class="alert alert-info" role="alert" ng-show="file.Progress == 100 && !file.Success">Processing, please wait...</div>
+                        <div class="alert alert-success" role="alert" ng-show="file.Success">Upload Complete!</div>
+                    </div>
+                    <div class="alert alert-danger" role="alert" ng-show="errorMsg.length > 0">
+                        <p>{{errorMsg}}</p>
+                    </div>
+                    <div>{{Error}}</div>
+                </div>
+            </form>
+</form>
